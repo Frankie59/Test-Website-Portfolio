@@ -1,6 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function About() {
+  const navigate = useNavigate();
+
   // Array of projects
   const projects = [
     { id: 1, title: 'Course Planning Assistant', description: 'Web-based application that allows students at Pepperdine University to construct a four-year course plan based on their major and/or minor.', imageUrl: 'course.png', githubUrl: 'https://github.com/Frankie59/Course-Planning-Assistant' },
@@ -13,6 +16,10 @@ function About() {
     { id: 1, title: 'Researcher/Cinematographer', company: 'Skip Media', date: 'October 2020 - August 2023', description: ['Conducting relevant research and gathering footage for entertainment videos on YouTube.', 'Working with a team and collaborating on research and recordings.', 'Integrating and collecting new footage for editors to finalize projects.', 'Producing and operating with collected footage in a creative manner.'] },
     { id: 2, title: 'Frontend Developer Intern', company: 'California Seismic', date: 'June 2024 - Present', description: ['Developing React components to add new features and pages.', 'Constructing wireframes in Figma before creating new modules.', 'Learning how to host my own domain using AWS.', 'Participating in code reviews for components ready to go into production.'] }
   ];
+
+  const navigateToUpcomingProjects = () => {
+    navigate('/upcomingprojects');
+  };
 
   return (
     <div className="p-4 pb-20" style={{ backgroundColor: "#C3DAF9" }}>
@@ -45,6 +52,13 @@ function About() {
               </ul>
             </div>
           ))}
+        </div>
+
+        <h1 className="text-4xl font-bold mb-4">Upcoming Project</h1>
+        <div className="mb-8">
+          <button onClick={navigateToUpcomingProjects} className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300">
+            View Upcoming Project
+          </button>
         </div>
 
         <div className="text-center mt-8 bg-gray-800 bg-opacity-75 p-4 rounded-lg">
